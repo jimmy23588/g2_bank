@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="g2_bank.list">
+      <field name="name">g2_bank list</field>
+      <field name="model">g2_bank.g2_bank</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="g2_bank.action_window">
+      <field name="name"></field>
+      <field name="res_model">g2_bank.g2_bank</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="g2_bank.action_server">
+      <field name="name">g2_bank server</field>
+      <field name="model_id" ref="model_g2_bank_g2_bank"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="BankOdoo" id="g2_bank.menu_root"/>
+-->
+    <!-- menu categories -->
+
+    <menuitem name="account" id="g2_bank.menu_account" parent="g2_bank.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="g2_bank.menu_2" parent="g2_bank.menu_root"/> -->
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="g2_bank.menu_1_list" parent="g2_bank.menu_1"
+              action="g2_bank.action_window"/>
+    <menuitem name="Server to list" id="g2_bank" parent="g2_bank.menu_2"
+              action="g2_bank.action_server"/>
+-->
+  </data>
+</odoo>
