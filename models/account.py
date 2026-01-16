@@ -4,13 +4,13 @@ from odoo import models, fields, api
 
 
 class Account(models.Model):
-     _name = 'g2_bank.Account'
+     _name = 'g2_bank.account'
      _description = 'Account'
      
      name = fields.Text()
-     balance = fields.Monetary(required=true)
-     creditLine = fields.Monetary()
-     beginBalance = fields.Monetary()
+     balance = fields.Float(required=True)
+     creditLine = fields.Float()
+     beginBalance = fields.Float()
      beginBalanceTimestamp = fields.Datetime()
      typeAccount = fields.Selection(
      [
@@ -19,8 +19,9 @@ class Account(models.Model):
         ],
         string="Account Type"
     )
-     Customer_ids = fields.Many2Many('g2_bank.Customer', string="Customers")
-     Movement_id = fields.One2many('g2_bank.Movement', string="Movements")
+    
+     Customer_ids = fields.Many2many('g2_bank.customer', string="Customers")
+     Movement_id = fields.One2many('g2_bank.movement', string="Movements")
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
 #     description = fields.Text()
