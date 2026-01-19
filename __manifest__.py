@@ -28,6 +28,8 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/bank.xml',
+        'views/account.xml',
+        'views/customer.xml',
         'views/views.xml',
         'views/templates.xml',
     ],

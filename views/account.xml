@@ -16,13 +16,13 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="g2_bank.action_window">
-      <field name="name"></field>
+
+    <record model="ir.actions.act_window" id="g2_bank.action_account">
+      <field name="name">Accounts</field>
       <field name="res_model">g2_bank.g2_bank</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
     <!-- server action to the one above -->
 <!--
     <record model="ir.actions.server" id="g2_bank.action_server">
@@ -44,14 +44,15 @@
     <menuitem name="BankOdoo" id="g2_bank.menu_root"/>
 -->
     <!-- menu categories -->
-
+  <!-- 
     <menuitem name="account" id="g2_bank.menu_account" parent="g2_bank.menu_root"/>
-    <!-- <menuitem name="Menu 2" id="g2_bank.menu_2" parent="g2_bank.menu_root"/> -->
+  <menuitem name="Menu 2" id="g2_bank.menu_2" parent="g2_bank.menu_root"/> -->
 
     <!-- actions -->
+
+    <menuitem name="account" id="g2_bank.menu_account" parent="g2_bank.menu_root"
+              action="g2_bank.action_account"/>
 <!--
-    <menuitem name="List" id="g2_bank.menu_1_list" parent="g2_bank.menu_1"
-              action="g2_bank.action_window"/>
     <menuitem name="Server to list" id="g2_bank" parent="g2_bank.menu_2"
               action="g2_bank.action_server"/>
 -->
