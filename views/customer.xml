@@ -18,7 +18,7 @@
     <!-- actions opening views on models -->
 <record model="ir.actions.act_window" id="g2_bank.action_customer">
       <field name="name">Customer</field>
-      <field name="res_model">g2_bank.g2_bank</field>
+      <field name="res_model">res.users</field>
       <field name="view_mode">tree,form</field>
     </record>
     <!-- server action to the one above -->
@@ -47,7 +47,7 @@
     <menuitem name="Menu 2" id="g2_bank.menu_2" parent="g2_bank.menu_root"/>
 -->
     <!-- actions -->
-    <menuitem name="customer" id="g2_bank.menu_customer" parent="g2_bank.menu_root"
+    <menuitem name="Customer" id="g2_bank.menu_customer" parent="g2_bank.menu_root"
               action="g2_bank.action_customer"/>
 <!--
     <menuitem name="Server to list" id="g2_bank" parent="g2_bank.menu_2"

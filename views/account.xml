@@ -19,7 +19,7 @@
 
     <record model="ir.actions.act_window" id="g2_bank.action_account">
       <field name="name">Accounts</field>
-      <field name="res_model">g2_bank.g2_bank</field>
+      <field name="res_model">g2_bank.account</field>
       <field name="view_mode">tree,form</field>
     </record>
 

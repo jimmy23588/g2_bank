@@ -20,8 +20,8 @@ class Account(models.Model):
         string="Account Type"
     )
     
-     Customer_ids = fields.Many2many('g2_bank.customer', string="Customers")
-     Movement_id = fields.One2many('g2_bank.movement', string="Movements")
+     Customer_ids = fields.Many2many('res.users', string="Customers")
+#     Movement_id = fields.One2many('g2_bank.movement', 'account_id', string="Movements")
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
 #     description = fields.Text()
