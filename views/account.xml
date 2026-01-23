@@ -50,7 +50,7 @@
 
     <!-- actions -->
 
-    <menuitem name="account" id="g2_bank.menu_account" parent="g2_bank.menu_root"
+    <menuitem name="Account" id="g2_bank.menu_account" parent="g2_bank.menu_root"
               action="g2_bank.action_account"/>
 <!--
     <menuitem name="Server to list" id="g2_bank" parent="g2_bank.menu_2"

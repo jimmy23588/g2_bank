@@ -14,7 +14,7 @@ class Movement(models.Model):
      amount = fields.Float()
      balance = fields.Float()
      
-     Movement_ids=fields.Many2one('g2_bank.account', string ="Account")
+     Accounts_id=fields.Many2one('g2_bank.account', string ="Account")
      
      
      
