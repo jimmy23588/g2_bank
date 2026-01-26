@@ -1,60 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="g2_bank.list">
-      <field name="name">g2_bank list</field>
-      <field name="model">g2_bank.g2_bank</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+    <data>
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="g2_bank.action_window">
-      <field name="name">g2_bank window</field>
-      <field name="res_model">g2_bank.g2_bank</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+        <!-- Tree view -->
+        <record id="view_account_tree" model="ir.ui.view">
+            <field name="name">g2_bank.account.tree</field>
+            <field name="model">g2_bank.account</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="account_type"/>
+                    <field name="balance"/>
+                </tree>
+            </field>
+        </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="g2_bank.action_server">
-      <field name="name">g2_bank server</field>
-      <field name="model_id" ref="model_g2_bank_g2_bank"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+        <!-- Form view -->
+        <record id="view_account_form" model="ir.ui.view">
+            <field name="name">g2_bank.account.form</field>
+            <field name="model">g2_bank.account</field>
+            <field name="arch" type="xml">
+                <form string="Account">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="account_type"/>
+                            <field name="balance"/>
+                            <field name="credit_line"/>
+                        </group>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="g2_bank" id="g2_bank.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="g2_bank.menu_1" parent="g2_bank.menu_root"/>
-    <menuitem name="Menu 2" id="g2_bank.menu_2" parent="g2_bank.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="g2_bank.menu_1_list" parent="g2_bank.menu_1"
-              action="g2_bank.action_window"/>
-    <menuitem name="Server to list" id="g2_bank" parent="g2_bank.menu_2"
-              action="g2_bank.action_server"/>
--->
-  </data>
+                        <notebook>
+                            <page string="Customers">
+                                <field name="customer_ids"/>
+                            </page>
+
+                            <page string="Movements">
+                                <field name="movement_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="amount"/>
+                                        <field name="balance"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
 </odoo>

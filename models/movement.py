@@ -4,17 +4,17 @@ from odoo import models, fields, api
 
 
 class Movement(models.Model):
-     _name = 'g2_bank.Movement'
+     _name = 'g2_bank.movement'
      _description = 'Movement of Account'
 
      
 
      name = fields.Char()
      timestamp = fields.Date()
-     amount = fields.Monetary()
-     balance = fields.Monetary()
+     amount = fields.Float()
+     balance = fields.Float()
      
-     Movement_ids=fields.Many2one('g2_bank.Account', string ="Account")
+     Movement_ids=fields.Many2one('g2_bank.account', string ="Account")
      
      
      

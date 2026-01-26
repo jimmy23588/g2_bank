@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "BankOdoo",
-
+     'application': true,
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
         subtitle on modules listing or apps.openerp.com""",
@@ -26,7 +26,11 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/bank.xml',
+        'views/account.xml',
+        'views/movement.xml',
+        'views/customer.xml',
         'views/views.xml',
         'views/templates.xml',
     ],
