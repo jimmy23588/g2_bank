@@ -21,7 +21,7 @@ class Account(models.Model):
     )
     
      Customer_ids = fields.Many2many('res.users', string="Customers")
-#     Movement_id = fields.One2many('g2_bank.movement', 'account_id', string="Movements")
+     Movements_ids = fields.One2many('g2_bank.movement', 'account_id', string="Movements")
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
 #     description = fields.Text()
