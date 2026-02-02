@@ -29,6 +29,7 @@
         'security/ir.model.access.csv',
         'views/bank.xml',
         'views/account.xml',
+        'views/movement.xml',
         'views/customer.xml',
         #'views/views.xml',
         #'views/templates.xml',

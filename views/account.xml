@@ -14,6 +14,55 @@
       </field>
     </record>
 -->
+    <record id="g2_bank_account_tree_view" model="ir.ui.view">
+        <field name="name">g2.bank.account.tree</field>
+        <field name="model">g2_bank.account</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="typeAccount"/>
+                <field name="balance"/>
+                <field name="creditLine"/>
+                <field name="beginBalance"/>
+                <field name="beginBalanceTimestamp"/>
+                <field name="Customers_ids"/>
+            </tree>
+        </field>
+    </record>
+
+<record id="g2_bank_account_form_view" model="ir.ui.view">
+    <field name="name">g2.bank.account.form</field>
+    <field name="model">g2_bank.account</field>
+    <field name="arch" type="xml">
+        <form string="Account">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="typeAccount"/>
+                </group>
+
+                <group>
+                    <field name="balance"
+                           attrs="{'readonly': [('id','!=',False)]}"/>
+
+                    <field name="creditLine"/>
+        
+                    <field name="beginBalance"
+                           attrs="{'readonly': [('id','!=',False)]}"/>
+                    
+                    <field name="beginBalanceTimestamp"
+                           attrs="{'readonly': [('id','!=',False)]}"/>
+                </group>
+                <group>
+                    <field name="Customers_ids"/>
+                    <field name="Movements_ids"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!--attrs="{'readonly' :[('id', '!=', False)]}" -->
 
     <!-- actions opening views on models -->
 
