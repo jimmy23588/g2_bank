@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
@@ -8,6 +9,9 @@ class Customer(models.Model):
      _inherit = 'res.users'
 
      Accounts_ids = fields.Many2many('g2_bank.account', string="Customers")
+     
+     
+     
      
 #     name = fields.Char()
 #     value = fields.Integer()

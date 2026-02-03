@@ -5,8 +5,8 @@
 
 
  class g2_bank(models.Model):
-  #  _name = 'g2_bank.g2_bank'
-  #  _description = 'g2_bank.g2_bank'
+    #_name = 'g2_bank.g2_bank'
+   # _description = 'g2_bank.g2_bank'
 
   #  name = fields.Char()
    #  value = fields.Integer()
