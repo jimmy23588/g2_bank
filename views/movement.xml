@@ -14,6 +14,47 @@
       </field>
     </record>
 -->
+<record model="ir.ui.view" id="movement_tree_view">
+
+            <field name="name">g2_bank.movement.tree</field>
+            <field name="model">g2_bank.movement</field>
+            <field name="arch" type="xml">  
+                <tree>
+                    <field name="timestamp"/>
+                    <field name="name"/>
+                    <field name="amount"/>
+                    <field name="balance"/>
+                </tree>
+            </field>
+        </record>
+   
+        <record id="g2_bank_movement_form_view" model="ir.ui.view">
+            <field name="name">g2.bank.movement.form</field>
+            <field name="model">g2_bank.movement</field>
+            <field name="arch" type="xml">
+                <form string="Movement">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+
+                        <group>
+                            <field name="amount"
+                                   attrs="{'readonly': [('id','!=',False)]}"/>
+
+                            <field name="balance"
+                                   attrs="{'readonly': [('id','!=',False)]}"/>
+
+                            <field name="timestamp"
+                                   attrs="{'readonly': [('id','!=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="account_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
   <record id="g2_bank.action_movement" model="ir.actions.act_window">
             <field name="name">Movement</field>
