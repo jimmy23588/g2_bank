@@ -9,10 +9,10 @@ class Account(models.Model):
      _description = 'Account'
      
      name = fields.Text(string = "Name", required=True)
-     balance = fields.Float(string = "Balance", required=True)
+     balance = fields.Float(string = "Balance")
      creditLine = fields.Float(string = "Credit Line")
-     beginBalance = fields.Float(string = "Begin Balance")
-     beginBalanceTimestamp = fields.Datetime(string = "Date")
+     beginBalance = fields.Float(string = "Begin Balance", required=True)
+     beginBalanceTimestamp = fields.Datetime(string = "Date", required=True)
      typeAccount = fields.Selection(
      [
             ('standar', 'Standar'),
@@ -21,18 +21,21 @@ class Account(models.Model):
         string="Account Type"
     )
     
-     Customers_ids = fields.Many2many('res.users', string="Customers")
+     Customers_ids = fields.Many2many('res.users', string="Customers", required=True)
      Movements_ids = fields.One2many('g2_bank.movement', 'account_id', string="Movements")
 
-     
-def write(self, vals):
-        for record in self:
-            if record.typeAccount != 'credit':
-                # Solo editable si es credit
-                not_editable = [f for f in vals if f in ('creditLine')]
-                if not_editable:
-                    raise ValidationError(
-                        "Credit Line es editable si la cuenta es de tipo CREDIT."
-                    )
-        return super(Account, self).write(vals)
     
+    @api.constrains('creditLine', 'typeAccount')
+    def _established_credit_line_only_credit(self):
+        for record in self:
+            if record.typeAccount != 'credit' and record.creditLine:
+                raise ValidationError(
+                    "Credit Line solo puede modificarse si la cuenta es de tipo CREDIT."
+                )
+def unlink(self):
+        for account in self:
+            if account.Movements_ids:
+                raise UserError(
+                    "No se puede borrar una cuenta que tenga movimientos asociados."
+                )
+        return super(Account, self).unlink()
