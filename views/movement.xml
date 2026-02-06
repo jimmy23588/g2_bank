@@ -1,0 +1,97 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="g2_bank.list">
+      <field name="name">g2_bank list</field>
+      <field name="model">g2_bank.g2_bank</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+<record model="ir.ui.view" id="movement_tree_view"> 
+
+            <field name="name">g2_bank.movement.tree</field> 
+            <field name="model">g2_bank.movement</field> 
+            <field name="arch" type="xml">   
+                <tree> 
+                    <field name="timestamp"/> 
+                    <field name="name"/> 
+                    <field name="amount"/> 
+                    <field name="balance"/> 
+                </tree> 
+            </field> 
+        </record> 
+    
+        <record id="g2_bank_movement_form_view" model="ir.ui.view">
+            <field name="name">g2.bank.movement.form</field>
+            <field name="model">g2_bank.movement</field>
+            <field name="arch" type="xml">
+                <form string="Movement">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+
+                        <group>
+                            <field name="amount"
+                                   attrs="{'readonly': [('id','!=',False)]}"/>
+
+                            <field name="balance"
+                                   attrs="{'readonly': [('id','!=',False)]}"/>
+
+                            <field name="timestamp"
+                                   attrs="{'readonly': [('id','!=',False)]}"/>
+                        </group>
+                        <group>
+                            <field name="account_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+  <record id="g2_bank.action_movement" model="ir.actions.act_window">
+            <field name="name">Movement</field>
+            <field name="res_model">g2_bank.movement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="g2_bank.action_server">
+      <field name="name">g2_bank server</field>
+      <field name="model_id" ref="model_g2_bank_g2_bank"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="BankOdoo" id="g2_bank.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="customer" id="g2_bank.customer" parent="g2_bank.menu_root"/>
+    <menuitem name="Menu 2" id="g2_bank.menu_2" parent="g2_bank.menu_root"/>
+-->
+    <!-- actions -->
+    <menuitem name="Movement" id="g2_bank.menu_movement" parent="g2_bank.menu_root"
+              action="g2_bank.action_movement"/>
+<!--
+    <menuitem name="Server to list" id="g2_bank" parent="g2_bank.menu_2"
+              action="g2_bank.action_server"/>
+-->
+  </data>
+</odoo>
