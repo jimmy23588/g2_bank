@@ -23,4 +23,3 @@ class Account(models.Model):
     
      Customers_ids = fields.Many2many('res.users', string="Customers")
      Movements_ids = fields.One2many('g2_bank.movement', 'account_id', string="Movements")
-     

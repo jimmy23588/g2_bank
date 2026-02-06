@@ -14,14 +14,30 @@ class Movement(models.Model):
     
      account_id = fields.Many2one('g2_bank.account', string="Account")
      
-     
+                    
      @api.constrains('amount', 'name', 'account_id') 
-    def _validationAmountError(self): 
+     def _validationAmountError(self): 
         for record in self: 
             #amount sea positivo 
             if record.amount == 0: 
                 #else
                 raise ValidationError("The amount cannot be zero.") 
+    
+     @api.depends('amount', 'account_id')
+     def _compute_balance(self):
+        for record in self:
+            if not record.account_id:
+                record.balance = 0.0
+                continue
+
+            previous_moves = self.search([
+                ('account_id', '=', record.account_id.id),
+                ('id', '<', record.id)
+            ], order='timestamp desc', limit=1)
+
+            previous_balance = previous_moves.balance if previous_moves else 0.0
+            record.balance = previous_balance + record.amount
+   
        
     # @api.constrains('date')
      #def _check_date(self):
