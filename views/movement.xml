@@ -35,20 +35,22 @@
                 <form string="Movement">
                     <sheet>
                         <group>
+							<!--FIXME: Este campo solo es editable al crear-->
                             <field name="name"/>
                         </group>
 
                         <group>
                             <field name="amount"
                                    attrs="{'readonly': [('id','!=',False)]}"/>
-
+							<!--FIXME: Este campo es siempre readonly-->
                             <field name="balance"
                                    attrs="{'readonly': [('id','!=',False)]}"/>
-
+							<!--FIXME: Este campo es siempre readonly-->
                             <field name="timestamp"
                                    attrs="{'readonly': [('id','!=',False)]}"/>
                         </group>
                         <group>
+							<!--FIXME: Este campo solo es editable al crear-->
                             <field name="account_id"/>
                         </group>
                     </sheet>

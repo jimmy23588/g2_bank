@@ -6,7 +6,8 @@ from odoo import models, fields, api
 class Movement(models.Model):
      _name = 'g2_bank.movement'
      _description = 'Movement of Account'
-    
+	 
+	#FIXME: Este campo debe ser seleccionable con valores "DEPOSIT" y "PAYMENT"	
      name = fields.Text(string = "Description", required=True)
      timestamp = fields.Date(string = "TimeStamp", required = True, default=fields.Datetime.today)
      amount = fields.Float(string = "Amount", default=0.0)
@@ -37,7 +38,22 @@ class Movement(models.Model):
 
             previous_balance = previous_moves.balance if previous_moves else 0.0
             record.balance = previous_balance + record.amount
-   
+
+	#FIXME: Hay que actualizar el saldo de la cuenta al crear el movimiento.
+	#Para esto tendrás que definir un método:
+	#@api.model_create_multi
+	#def create(self, vals_list):
+        ## lógica antes de crear
+        #records = super().create(vals_list)
+        ## lógica después de crear
+        #return records
+	
+	
+	#FIXME: Controla que solo se pueda borrar el último movimiento
+	#Para esto tendrás que definir un método:
+	#def unlink(self):
+    ## lógica antes de borrar
+    #return super().unlink()
        
     # @api.constrains('date')
      #def _check_date(self):
