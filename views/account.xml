@@ -38,22 +38,26 @@
             <sheet>
                 <group>
                     <field name="name"/>
+					<!--FIXME Este campo es editable solo al crear -->
                     <field name="typeAccount"/>
                 </group>
 
                 <group>
+					<!--FIXME Este campo es readonly siempre-->
                     <field name="balance"/>
                     
                     <field name="creditLine"/>
-        
+
+					<!--FIXME Este campo es editable solo al crear -->
                     <field name="beginBalance"
                            attrs="{'readonly': [('id','!=',False)]}"/>
-                    
+
+					<!--FIXME Este campo es readonly siempre-->
                     <field name="beginBalanceTimestamp"
                            attrs="{'readonly': [('id','!=',False)]}"/>
                 </group>
                 <group>
-                    <field name="Customers_ids"/>
+                    <!--field name="Customers_ids"/-->
                     <field name="Movements_ids"/>
                 </group>
             </sheet>
