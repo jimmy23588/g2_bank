@@ -7,7 +7,7 @@ from odoo.exceptions import ValidationError, UserError
 class Account(models.Model):
      _name = 'g2_bank.account'
      _description = 'Account'
-     #Obtiene de res.currency la moneda Campo realcional
+     #Obtiene de res.currency la moneda Campo relacional Mejora respecto al codigo anterior
      currency_id = fields.Many2one('res.currency', string='Currency', required=True, default=lambda self: self.env.company.currency_id)
      name = fields.Text(string = "Name", required=True)
      balance = fields.Monetary(string="Balance", currency_field='currency_id', compute='_compute_balance', store=True)
@@ -51,7 +51,7 @@ class Account(models.Model):
             record.balance = record.beginBalance + sum(m.amount for m in record.Movements_ids)
      #En vez de modificar create y con ayuda de mi compañero este constrains 
      # asigna al balance el beginbalance y despues suma la cantidad que hay en 
-     # cada movimiento
+     # cada movimiento 
      @api.constrains('creditLine', 'typeAccount')
      def _established_credit_line_only_credit(self):
         for record in self:

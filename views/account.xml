@@ -19,6 +19,7 @@
         <field name="model">g2_bank.account</field>
         <field name="arch" type="xml">
             <tree>
+                <!--Aqui he añadido el campo currency para qu ese vea la moneda-->
                 <field name="currency_id" invisible="1"/>
                 <field name="name"/>
                 <field name="typeAccount"/>
@@ -38,7 +39,7 @@
     <field name="arch" type="xml">
         <form string="Account">
             <sheet>
-                <!--Campo invisible para que aprezcz la moneda -->
+                <!--Campo invisible para que aprezca la moneda -->
                 <field name="currency_id" invisible="1"/>
                 <group>
                     <field name="name"/>
